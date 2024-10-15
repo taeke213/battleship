@@ -18,7 +18,7 @@ export class game{
         }else{
             this.turn = this.player1
         }
-
+        
     }
     allSank(){
         if(this.turn.sank === 5){

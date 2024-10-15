@@ -58,10 +58,13 @@ class Board{
         if(dir === undefined){
             return true
         }
+        console.log("1")
         return false
     }
     recieveAttack(cord){
-        if(this.board[cord[1]][cord[0]] !== ''){
+        console.log(cord)
+        if(this.board[cord[1]][cord[0]] !== '' && this.board[cord[1]][cord[0]] !== "O"){
+            console.log(this.board[cord[1]][cord[0]])
             this.board[cord[1]][cord[0]].isHit()
             if(this.board[cord[1]][cord[0]].sank){
                 return true
@@ -69,6 +72,7 @@ class Board{
         }else{
             this.board[cord[1]][cord[0]] = "O"
         }
+        console.log(this.board)
         return false
     }
 }
