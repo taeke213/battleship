@@ -3,14 +3,16 @@ import { findcolor } from './color.js'
 export class Board{
     constructor(playername){
         this.board = [
-            ['','','','','','','',''],
-            ['','','','','','','',''],
-            ['','','','','','','',''],
-            ['','','','','','','',''],
-            ['','','','','','','',''],
-            ['','','','','','','',''],
-            ['','','','','','','',''],
-            ['','','','','','','',''],
+            ['','','','','','','','','',''],
+            ['','','','','','','','','',''],
+            ['','','','','','','','','',''],
+            ['','','','','','','','','',''],
+            ['','','','','','','','','',''],
+            ['','','','','','','','','',''],
+            ['','','','','','','','','',''],
+            ['','','','','','','','','',''],
+            ['','','','','','','','','',''],
+            ['','','','','','','','','',''],
         ]
         this.html = document.getElementById(playername)
     }
@@ -29,7 +31,7 @@ export class Board{
         let dir
         if(cords.length === 1){
             let cor = cords[0]
-            if(cor[0] > 8 || cor[0] < 0 || cor[1] > 8 || cor[1] < 0){
+            if(cor[0] > 10 || cor[0] < 0 || cor[1] > 10 || cor[1] < 0){
                 return true
             }
             return false
@@ -38,7 +40,7 @@ export class Board{
         for(let i = 0;i < cords.length;i++){
             
             let cor = cords[i]
-            if(cor[0] > 8 || cor[0] < 0 || cor[1] > 8 || cor[1] < 0){
+            if(cor[0] > 10 || cor[0] < 0 || cor[1] > 10 || cor[1] < 0){
                 return false
             }
             if(prev !== undefined && dir === undefined){
@@ -82,9 +84,9 @@ export class Board{
             console.log(nodelist)
             
             console.log(x)
-        if(this.board[cord[1]][cord[0]] !== '' && this.board[cord[1]][cord[0]] !== "O"){
+        if(this.board[y][x] !== '' && this.board[y][x] !== "O"){
             console.log(this.board[cord[1]][cord[0]])
-            this.board[cord[1]][cord[0]].isHit()
+            this.board[y][x].isHit()
             nodelist[x].style.backgroundColor = "green"
             if(this.board[cord[1]][cord[0]].sank){
                 let ship = this.board[cord[1]][cord[0]]

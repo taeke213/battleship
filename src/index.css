@@ -4,7 +4,7 @@ body{
 }
 .board{
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     width: 40vw;
     height: 40vw;
     background-image: radial-gradient(rgb(0, 166, 255),rgb(0, 91, 219));
@@ -14,7 +14,7 @@ body{
 }
 .board > div{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 
 }
 .board > div > div{

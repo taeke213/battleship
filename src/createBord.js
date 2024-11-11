@@ -1,10 +1,10 @@
 import './bundle.js'
 import { gamevar } from './bundle.js'
 export function createBoard(board, player){
-    for(let rowi = 0;rowi < 8; rowi++){
+    for(let rowi = 0;rowi < 10; rowi++){
         let div = document.createElement("div")
         div.id = `${rowi}`
-        for(let coli = 0; coli < 8; coli++){
+        for(let coli = 0; coli < 10; coli++){
             let block = document.createElement("div")
             block.id = `[${rowi},${coli}]`
             let but = document.createElement("div")

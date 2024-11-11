@@ -9,8 +9,8 @@ function makenums(){
     let cord
     let s = false
     while(!s){
-        let x = Math.floor(Math.random() * 7) 
-        let y = Math.floor(Math.random() * 7)
+        let x = Math.floor(Math.random() * 9) 
+        let y = Math.floor(Math.random() * 9)
         cord = [y,x]
         s = checkcord(cord)
         console.log(s)
