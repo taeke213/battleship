@@ -8,6 +8,22 @@ import { createBoard } from "./createBord.js"
 
 
 export let gamevar = new game()
-createBoard(document.getElementById("board1"))
-console.log(gamevar.turn.board.place([[1,1],[1,2],[1,3]],new Ship(3)))
+createBoard(document.getElementById("player1"),gamevar.player1.name)
+createBoard(document.getElementById("player2"),gamevar.player2.name)
+
+for(let count = 1; count < 6; count++){
+    let list = []
+    for(let i = 0; i < count; i++){
+        list.push([count,i])
+    }
+    gamevar.player1.board.place(list, new Ship(count,list))
+}
+
+for(let count = 1; count < 6; count++){
+    let list = []
+    for(let i = 0; i < count; i++){
+        list.push([count,i])
+    }
+    gamevar.player2.board.place(list, new Ship(count,list))
+}
 console.log(gamevar)

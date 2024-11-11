@@ -1,19 +1,21 @@
 class Ship{
-    constructor(n){
+    constructor(n, cords){
         {
             this.shiplength = n,
             this.hits = 0,
             this.sank = false
+            this.cords = cords 
         }
     }
     isHit(){
         this.hits += 1
-        this.isSank()
-        return this
+        if(this.isSank()){return true}
+        return false
     }
     isSank(){
         if(this.hits === this.shiplength){
             this.sank = true
+            return true
         }
     }
 }

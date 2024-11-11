@@ -1,5 +1,7 @@
-class Board{
-    constructor(){
+import { findcolor } from './color.js'
+
+export class Board{
+    constructor(playername){
         this.board = [
             ['','','','','','','',''],
             ['','','','','','','',''],
@@ -10,6 +12,7 @@ class Board{
             ['','','','','','','',''],
             ['','','','','','','',''],
         ]
+        this.html = document.getElementById(playername)
     }
     place(cords = [],boat){
     if(cords.length !== boat.shiplength || this.checkcords(cords)){
@@ -21,9 +24,19 @@ class Board{
 
     }
     checkcords(cords){
+        console.log(cords)
         let prev
         let dir
+        if(cords.length === 1){
+            let cor = cords[0]
+            if(cor[0] > 8 || cor[0] < 0 || cor[1] > 8 || cor[1] < 0){
+                return true
+            }
+            return false
+            
+        }
         for(let i = 0;i < cords.length;i++){
+            
             let cor = cords[i]
             if(cor[0] > 8 || cor[0] < 0 || cor[1] > 8 || cor[1] < 0){
                 return false
@@ -62,19 +75,33 @@ class Board{
         return false
     }
     recieveAttack(cord){
-        console.log(cord)
+        let y = Number(cord[1])
+            let x = Number(cord[0])
+            let nodes =  this.html.childNodes
+            let nodelist = nodes[y].childNodes
+            console.log(nodelist)
+            
+            console.log(x)
         if(this.board[cord[1]][cord[0]] !== '' && this.board[cord[1]][cord[0]] !== "O"){
             console.log(this.board[cord[1]][cord[0]])
             this.board[cord[1]][cord[0]].isHit()
+            nodelist[x].style.backgroundColor = "green"
             if(this.board[cord[1]][cord[0]].sank){
+                let ship = this.board[cord[1]][cord[0]]
+                let color = findcolor(ship)
+                ship.cords.forEach(cor => {
+                    let f = nodes[cor[1]]
+                    console.log(f)
+                    f.childNodes[cor[0]].style.backgroundColor = color 
+                })
+                
                 return true
             }
         }else{
             this.board[cord[1]][cord[0]] = "O"
+            nodelist[x].style.backgroundColor = "red"
         }
         console.log(this.board)
         return false
     }
 }
-
-module.exports = Board

@@ -1,10 +1,10 @@
-import Board from './gameboard.js'
+import {Board} from './gameboard.js'
 import { Ship } from './ship.js'
 
 export class player{
     constructor(name){
         this.name = name
-        this.board = new Board()
+        this.board = new Board(name)
         this.sank = 0
     }
     attack(cords){
@@ -19,6 +19,10 @@ export class player{
     }
     allShipSank(){
         if(this.sank === 5){
+            let h = document.createElement("div")
+            h.textContent = "game over"
+            h.classList.add("gameover")
+            document.body.appendChild(h)
             return true
         }
         return false
